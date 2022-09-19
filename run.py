@@ -1,12 +1,11 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+
+from random import randint
 
 board = []
 
 turns_left = 10
 
-
+total_ships = 4
 
 
 def make_game_board(board):
@@ -17,43 +16,61 @@ def make_game_board(board):
 
     print(" 1  2  3  4  5  6  7  8")
     print("-----------------------")
-    
-    num = 1
-
-    # for A in range(7):
-    #     print(num + 1)
 
     for A in range(0, 7):
         board.append([" W "] * 8)
     for B in board:
             print("".join(B))
+
+
+def ships(board):
+
+    """
+    function to create computer ships
+    """
     
-        
+    def ship_rand_row(board):
+        return randint(0, len(board))
 
-    # for B in board:
-    #     print(" ".join_row())
-
-make_game_board(board)
-
-# class Board:
-
-#     for x in range(8):
-#         print(-)
-
-#     def __init__(self, row, column):
-#         self.row = row
-#         self.column = column
+    def ship_rand_col(board):
+        return randint(0, len(board[0]))
 
     
-# class Player:
-#     def __init__(self, name, selection)
+    # ship_row = ship_rand_row(board)
+    # ship_col = ship_rand_col(board)
 
-# print("Welcome to Battleships\n\n")
+    
 
-# print("rules\n\n")
+    # print(ship_row, ship_col)
 
-# name = input("What would you like to be reffered to as for the purpose of this mission?\n\n")
 
-# print("\n")
 
-# print(f"Welcome {name} , we hope you will guide us well in this war!")
+def user_guesses(board):
+
+    """
+    Input function for user to place guesses:
+    """
+    user_guess_row = input("Enter your row coordinate: ")
+    user_guess_column = input("Enter your column coordinate: ")
+
+    
+
+def game(board):
+    make_game_board(board)
+    ships(board)
+    user_guesses(board)
+
+
+print("Welcome to Battleships\n\n")
+
+print("rules\n\n")
+
+name = input("What would you like to be reffered to as for the purpose of this mission?\n\n")
+
+print("\n")
+
+print(f"Welcome {name} , we hope you will guide us well in this war!")
+
+
+game(board)
+
