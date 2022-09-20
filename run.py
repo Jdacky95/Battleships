@@ -16,10 +16,10 @@ def make_game_board(board):
     """
     function to create Game Board
     """
-    print("   1   2   3   4   5   6   7   8")
+    print("   0   1   2   3   4   5   6   7")
     print("   -----------------------------")
 
-    row_num = 1
+    row_num = 0
     for row in board:
         print(f"{row_num}", " | ".join(row))
         row_num += 1
@@ -49,21 +49,31 @@ def user_guesses(board):
     """
     user_guess_row = int(input("Enter your row coordinate: "))
     user_guess_column = int(input("Enter your column coordinate: "))
+
     if board[user_guess_row][user_guess_column] == "W":
         board[user_guess_row][user_guess_column]= "M"
+
     elif board[user_guess_row][user_guess_column] == "S":
          board[user_guess_row][user_guess_column]= "H"
-
          
-create_ships(SHOWN_BOARD) 
-make_game_board(SHOWN_BOARD)
-user_guesses(SHOWN_BOARD)
-create_ships(SHOWN_BOARD)       
-make_game_board(SHOWN_BOARD)
+
+
+# create_ships(SHOWN_BOARD) 
+# make_game_board(SHOWN_BOARD)
+# user_guesses(SHOWN_BOARD)
+# create_ships(SHOWN_BOARD)       
+# make_game_board(SHOWN_BOARD)
 
 
 
-# # def new_game(board):
+def new_game():
+    create_ships(SHOWN_BOARD) 
+    make_game_board(SHOWN_BOARD)
+    user_guesses(SHOWN_BOARD)
+    create_ships(SHOWN_BOARD)       
+    make_game_board(SHOWN_BOARD)
+
+new_game()
 # #     make_game_board(board)
 # #     create_ships(board)
 # #     user_guesses(board)
