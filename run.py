@@ -1,11 +1,13 @@
 
 from random import randint
 
-board = []
+# SECRET_BOARD 
 
-turns_left = 10
+# GUESSES_LEFT = 10
 
-total_ships = 4
+# TOTAL_SHIPS = 5
+
+BOARD = [[" W "] * 8 for x in range(8)]  
 
 
 def make_game_board(board):
@@ -14,63 +16,61 @@ def make_game_board(board):
     function to create Game Board
     """
 
-    print(" 1  2  3  4  5  6  7  8")
-    print("-----------------------")
+    print("   1   2   3   4   5   6   7   8")
+    print("   -----------------------------")
 
-    for A in range(0, 7):
-        board.append([" W "] * 8)
-    for B in board:
-            print("".join(B))
+    # for A in range(0, 7):
+    #     board.append([" W "] * 8)
+    #     print(board)    
 
-
-def ships(board):
-
-    """
-    function to create computer ships
-    """
-    
-    def ship_rand_row(board):
-        return randint(0, len(board))
-
-    def ship_rand_col(board):
-        return randint(0, len(board[0]))
-
-    
-    # ship_row = ship_rand_row(board)
-    # ship_col = ship_rand_col(board)
-
+    row_num = 1
+    for row in board:
+        print(f"{row_num}", "|".join(row))
+        row_num += 1
     
 
-    # print(ship_row, ship_col)
+make_game_board(BOARD)
+    # for B in board:
+    #     print("".join(B))
+        
+    
+# def create_ships(board):
 
-
-
-def user_guesses(board):
-
-    """
-    Input function for user to place guesses:
-    """
-    user_guess_row = input("Enter your row coordinate: ")
-    user_guess_column = input("Enter your column coordinate: ")
-
+#     """
+#     function to create computer ships
+#     """
+#     for ship in range(5):
+#         ship_row, ship_col = randint(0, 7), randint(0,7)
+#         board.append(ship,row, ship,col)
     
 
-def game(board):
-    make_game_board(board)
-    ships(board)
-    user_guesses(board)
+# def user_guesses(board):
+
+#     """
+#     Input function for user to place guesses:
+#     """
+#     user_guess_row = input("Enter your row coordinate: ")
+#     user_guess_column = input("Enter your column coordinate: ")
+#     if board [row] [column] == "W":
+#         board [row] [columm] = "X"
 
 
-print("Welcome to Battleships\n\n")
+# def new_game(board):
+#     make_game_board(board)
+#     create_ships(board)
+#     user_guesses(board)
+    
 
-print("rules\n\n")
+# print("Welcome to Battleships\n\n")
 
-name = input("What would you like to be reffered to as for the purpose of this mission?\n\n")
+# print("rules\n\n")
 
-print("\n")
+# name = input("What would you like to be reffered to as for the purpose of this mission?\n\n")
 
-print(f"Welcome {name} , we hope you will guide us well in this war!")
+# print("\n")
+
+# print(f"Welcome {name} , we hope you will guide us well in this war!")
 
 
-game(board)
+# new_game(board)
 
