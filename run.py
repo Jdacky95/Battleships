@@ -1,11 +1,6 @@
 
 from random import randint
 
-# SECRET_BOARD 
-
-# GUESSES_LEFT = 10
-
-TOTAL_SHIPS = 8
 
 SHOWN_BOARD = [["_"] * 8 for x in range(8)]
 SECRET_BOARD = [["W"] * 8 for x in range(8)]
@@ -47,26 +42,26 @@ def user_guesses():
     """
     Input function for user to place guesses:
     """
-    user_guess_row = input("Enter your row coordinate: ")
+    user_guess_row = input("\nEnter your row coordinate: ")
 
     while user_guess_row not in "01234567":
         print("Your guess is outside of the board, choose again")
-        user_guess_row = input("Enter your row coordinate: ")
+        user_guess_row = input("\nEnter your row coordinate: ")
 
     if user_guess_row == "":
         print("You need to select a row Captain!")
-        user_guess_row = input("Enter your row coordinate: ")
+        user_guess_row = input("\nEnter your row coordinate: ")
     
     
-    user_guess_column = input("Enter your column coordinate: ")
+    user_guess_column = input("\nEnter your column coordinate: ")
 
     while user_guess_column not in "01234567":
-        print("Your guess is outside of the board, choose again")
-        user_guess_column = input("Enter your column coordinate: ")
+        print("\nYour guess is outside of the board, choose again")
+        user_guess_column = input("\nEnter your column coordinate: ")
 
     if user_guess_column == "":
-        print("You need to select a column Captain!")
-        user_guess_column = input("Enter your row coordinate: ")
+        print("\nYou need to select a column Captain!")
+        user_guess_column = input("\nEnter your row coordinate: ")
 
     return int(user_guess_row), int(user_guess_column)
 
@@ -99,37 +94,67 @@ def user_guesses():
 
 def run_game():
 
-    TURNS_LEFT = 2
+    TURNS_LEFT = 10
+    SHIPS_LEFT = 1
 
-    
+    create_ships(SECRET_BOARD)
 
-    for x in range(4):
+    for x in range(5):
 
-        create_ships(SECRET_BOARD)
+        print(f"\n There are {SHIPS_LEFT} enemy ships remaining ")
+
+        print(f"\n You have {TURNS_LEFT} shots left, make them count!")
+
+        
         make_game_board(SHOWN_BOARD)
         user_guess_row, user_guess_column = user_guesses()
         
-
+        
     
         if SECRET_BOARD[user_guess_row][user_guess_column] == "S":
             SHOWN_BOARD[user_guess_row][user_guess_column] = "H"
+            print("\n You got one!!")
             TURNS_LEFT -= 1
+            SHIPS_LEFT -= 1
             
         elif SECRET_BOARD[user_guess_row][user_guess_column] == "W":
             SHOWN_BOARD[user_guess_row][user_guess_column] = "M"
+            print("\n That's a miss Captain, let's try again!")
             TURNS_LEFT -= 1
 
-        print(TURNS_LEFT) 
+        if SHIPS_LEFT == 0:
+            print("\n WE GOT THEM! Those pesky Sea dwellers won't be bothering us again any time soon!")
+
+            play_again = input("\n If you'd like to play again press R, if you want to exit press any other key:   \n ")
+
+            if play_again == "R":
+                
+                print("\n" * 20)
+                new_game()
+            
+            else:
+                exit()
+
         if TURNS_LEFT == 0:
-            print("Captain we've run out of Shells, you must go down with the ship!")
-            break 
+
+            print("\nCaptain we've run out of Shells, you must go down with the ship!")
+
+            play_again = input("\n If you'd like to play again press R, if you want to exit press any other key:   \n").upper()
+
+            if play_again == "R":
+                
+                print("\n" * 20)
+                new_game()
+            
+            else:
+                exit()
 
 
 def new_game():
 
     
 
-    print("Welcome to Battleships\n\n")
+    print("\nWelcome to Battleships\n\n")
 
     print("rules\n\n")
 
@@ -139,7 +164,7 @@ def new_game():
 
     print(f"Welcome Captain {name}, to the war room, we hope you will guide us well in this battle!")
 
-    start = input("Press S to start or any other key to exit the game:\n\n   ").upper()
+    start = input("\nPress S to start or any other key to exit the game:\n\n   ").upper()
 
     if start == "S":
         run_game()
