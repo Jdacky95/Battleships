@@ -26,15 +26,14 @@ def create_ships(board):
     """
     function to create computer ships
     """
-    for S in range(8):
-        # ship_row, ship_col = randint(0, 7), randint(0,7)
+    for S in range(5):
+
         ship_row, ship_col = randint(0, 7), randint(0, 7)
+        if board[ship_row][ship_col] == "S":
+            ship_row, ship_col = randint(0, 7), randint(0, 7)
         board[ship_row][ship_col] = "S"
         
 
-# create_ships(SHOWN_BOARD)       
-# # create_ships(SECRET_BOARD)
-# make_game_board(SHOWN_BOARD)
 
 
 def user_guesses():
@@ -109,9 +108,11 @@ def run_game():
         make_game_board(SHOWN_BOARD)
         user_guess_row, user_guess_column = user_guesses()
         
-        if SHOWN_BOARD[user_guess_row][user_guess_column] == "M" :
+        if SHOWN_BOARD[user_guess_row][user_guess_column] == "M":
             print("\n Focus Captain, we've already fired there, try again! ")
-            
+        
+        elif SHOWN_BOARD[user_guess_row][user_guess_column] == "H":
+            print("\n Focus Captain, we've already fired there, try again! ")
 
     
         elif SECRET_BOARD[user_guess_row][user_guess_column] == "S":
