@@ -7,7 +7,7 @@ from random import randint
 
 TOTAL_SHIPS = 8
 
-SHOWN_BOARD = [["W"] * 8 for x in range(8)]
+SHOWN_BOARD = [["_"] * 8 for x in range(8)]
 SECRET_BOARD = [["W"] * 8 for x in range(8)]
 
 
@@ -16,12 +16,12 @@ def make_game_board(board):
     """
     function to create Game Board
     """
-    print("   0   1   2   3   4   5   6   7")
+    print("\n\n    0   1   2   3   4   5   6   7")
     print("   -----------------------------")
 
     row_num = 0
     for row in board:
-        print(f"{row_num}", " | ".join(row))
+        print(f"{row_num} |", " | ".join(row))
         row_num += 1
         # board[2][2] = "S"    
     
@@ -49,7 +49,7 @@ def user_guesses():
     """
     user_guess_row = input("Enter your row coordinate: ")
 
-    while user_guess_row not in "1234567":
+    while user_guess_row not in "01234567":
         print("Your guess is outside of the board, choose again")
         user_guess_row = input("Enter your row coordinate: ")
 
@@ -60,7 +60,7 @@ def user_guesses():
     
     user_guess_column = input("Enter your column coordinate: ")
 
-    while user_guess_column not in "1234567":
+    while user_guess_column not in "01234567":
         print("Your guess is outside of the board, choose again")
         user_guess_column = input("Enter your column coordinate: ")
 
@@ -68,9 +68,15 @@ def user_guesses():
         print("You need to select a column Captain!")
         user_guess_column = input("Enter your row coordinate: ")
 
-    return int(user_guess_column), int(user_guess_column)
+    return int(user_guess_row), int(user_guess_column)
 
-user_guesses()
+    # if board[user_guess_row][user_guess_column] == "W":
+    #         board[user_guess_row][user_guess_column]= "M"
+
+    # elif board[user_guess_row][user_guess_column] == "S":
+    #      board[user_guess_row][user_guess_column]= "H"
+
+
     
 
 
@@ -86,42 +92,60 @@ user_guesses()
 # create_ships(SHOWN_BOARD) 
 # make_game_board(SHOWN_BOARD)
 # user_guesses(SHOWN_BOARD)
-# create_ships(SHOWN_BOARD)       
+# # create_ships(SHOWN_BOARD)       
 # make_game_board(SHOWN_BOARD)
 
 
 
-# def new_game():
-#     create_ships(SHOWN_BOARD) 
-#     make_game_board(SHOWN_BOARD)
-#     user_guesses(SHOWN_BOARD)
-#     create_ships(SHOWN_BOARD)       
-#     make_game_board(SHOWN_BOARD)
+def run_game():
 
-# new_game()
-# #     make_game_board(board)
-# #     create_ships(board)
-# #     user_guesses(board)
+    TURNS_LEFT = 2
+
     
 
-# print("Welcome to Battleships\n\n")
+    for x in range(4):
 
-# print("rules\n\n")
+        create_ships(SECRET_BOARD)
+        make_game_board(SHOWN_BOARD)
+        user_guess_row, user_guess_column = user_guesses()
+        
 
-# name = input("What is your name Captain?\n\n")
+    
+        if SECRET_BOARD[user_guess_row][user_guess_column] == "S":
+            SHOWN_BOARD[user_guess_row][user_guess_column] = "H"
+            TURNS_LEFT -= 1
+            
+        elif SECRET_BOARD[user_guess_row][user_guess_column] == "W":
+            SHOWN_BOARD[user_guess_row][user_guess_column] = "M"
+            TURNS_LEFT -= 1
 
-# print("\n")
-
-# print(f"Welcome {name} , we hope you will guide us well in this war!")
-
-# go = input("Press S to start game   ")
-
-# if go == "S":
-#     create_ships(BOARD)
-#     make_game_board(BOARD)
-# else:
-#     print("Damn Daniel, at it again with the white vans")
+        print(TURNS_LEFT) 
+        if TURNS_LEFT == 0:
+            print("Captain we've run out of Shells, you must go down with the ship!")
+            break 
 
 
+def new_game():
+
+    
+
+    print("Welcome to Battleships\n\n")
+
+    print("rules\n\n")
+
+    name = input("What is your name Captain?\n\n")
+
+    print("\n")
+
+    print(f"Welcome Captain {name}, to the war room, we hope you will guide us well in this battle!")
+
+    start = input("Press S to start or any other key to exit the game:\n\n   ").upper()
+
+    if start == "S":
+        run_game()
+    else:
+        exit()
+
+new_game()
 # new_game(board)
 
