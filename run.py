@@ -42,19 +42,44 @@ def create_ships(board):
 # make_game_board(SHOWN_BOARD)
 
 
-def user_guesses(board):
+def user_guesses():
 
     """
     Input function for user to place guesses:
     """
-    user_guess_row = int(input("Enter your row coordinate: "))
-    user_guess_column = int(input("Enter your column coordinate: "))
+    user_guess_row = input("Enter your row coordinate: ")
 
-    if board[user_guess_row][user_guess_column] == "W":
-        board[user_guess_row][user_guess_column]= "M"
+    while user_guess_row not in "1234567":
+        print("Your guess is outside of the board, choose again")
+        user_guess_row = input("Enter your row coordinate: ")
 
-    elif board[user_guess_row][user_guess_column] == "S":
-         board[user_guess_row][user_guess_column]= "H"
+    if user_guess_row == "":
+        print("You need to select a row Captain!")
+        user_guess_row = input("Enter your row coordinate: ")
+    
+    
+    user_guess_column = input("Enter your column coordinate: ")
+
+    while user_guess_column not in "1234567":
+        print("Your guess is outside of the board, choose again")
+        user_guess_column = input("Enter your column coordinate: ")
+
+    if user_guess_column == "":
+        print("You need to select a column Captain!")
+        user_guess_column = input("Enter your row coordinate: ")
+
+    return int(user_guess_column), int(user_guess_column)
+
+user_guesses()
+    
+
+
+
+    #     if board[user_guess_row][user_guess_column] == "W":
+    #         board[user_guess_row][user_guess_column]= "M"
+
+    # elif board[user_guess_row][user_guess_column] == "S":
+    #      board[user_guess_row][user_guess_column]= "H"
          
 
 
@@ -66,14 +91,14 @@ def user_guesses(board):
 
 
 
-def new_game():
-    create_ships(SHOWN_BOARD) 
-    make_game_board(SHOWN_BOARD)
-    user_guesses(SHOWN_BOARD)
-    create_ships(SHOWN_BOARD)       
-    make_game_board(SHOWN_BOARD)
+# def new_game():
+#     create_ships(SHOWN_BOARD) 
+#     make_game_board(SHOWN_BOARD)
+#     user_guesses(SHOWN_BOARD)
+#     create_ships(SHOWN_BOARD)       
+#     make_game_board(SHOWN_BOARD)
 
-new_game()
+# new_game()
 # #     make_game_board(board)
 # #     create_ships(board)
 # #     user_guesses(board)
@@ -92,8 +117,8 @@ new_game()
 # go = input("Press S to start game   ")
 
 # if go == "S":
-    # create_ships(BOARD)
-    # make_game_board(BOARD)
+#     create_ships(BOARD)
+#     make_game_board(BOARD)
 # else:
 #     print("Damn Daniel, at it again with the white vans")
 
