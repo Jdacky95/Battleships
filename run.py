@@ -42,26 +42,26 @@ def user_guesses():
     """
     Input function for user to place guesses:
     """
-    user_guess_row = input("\nEnter your row coordinate: ")
+    user_guess_row = input("\n Enter your row coordinate: ")
 
     while user_guess_row not in "01234567":
-        print("Your guess is outside of the board, choose again")
-        user_guess_row = input("\nEnter your row coordinate: ")
+        print("\n Your guess is outside of the board, choose again")
+        user_guess_row = input("\n Enter your row coordinate: ")
 
     if user_guess_row == "":
-        print("You need to select a row Captain!")
-        user_guess_row = input("\nEnter your row coordinate: ")
+        print("\n You need to select a row Captain!")
+        user_guess_row = input("\n Enter your row coordinate: ")
     
     
-    user_guess_column = input("\nEnter your column coordinate: ")
+    user_guess_column = input("\n Enter your column coordinate: ")
 
     while user_guess_column not in "01234567":
-        print("\nYour guess is outside of the board, choose again")
-        user_guess_column = input("\nEnter your column coordinate: ")
+        print("\n Your guess is outside of the board, choose again")
+        user_guess_column = input("\n Enter your column coordinate: ")
 
     if user_guess_column == "":
-        print("\nYou need to select a column Captain!")
-        user_guess_column = input("\nEnter your row coordinate: ")
+        print("\n You need to select a column Captain!")
+        user_guess_column = input("\n Enter your row coordinate: ")
 
     return int(user_guess_row), int(user_guess_column)
 
@@ -95,7 +95,7 @@ def user_guesses():
 def run_game():
 
     TURNS_LEFT = 10
-    SHIPS_LEFT = 1
+    SHIPS_LEFT = 5
 
     create_ships(SECRET_BOARD)
 
@@ -109,9 +109,12 @@ def run_game():
         make_game_board(SHOWN_BOARD)
         user_guess_row, user_guess_column = user_guesses()
         
-        
+        if SHOWN_BOARD[user_guess_row][user_guess_column] == "M" :
+            print("\n Focus Captain, we've already fired there, try again! ")
+            
+
     
-        if SECRET_BOARD[user_guess_row][user_guess_column] == "S":
+        elif SECRET_BOARD[user_guess_row][user_guess_column] == "S":
             SHOWN_BOARD[user_guess_row][user_guess_column] = "H"
             print("\n You got one!!")
             TURNS_LEFT -= 1
