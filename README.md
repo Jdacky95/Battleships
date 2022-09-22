@@ -41,11 +41,21 @@ If you run out of ammunition you will undoubtedly be overrun and you will be dec
  * I have declared a variable for the number of turns the user has left, this number goes down by one with every turn taken, if it hits zero, the    player loses the game. 
  * I have declared a variable for the number of ships that there are left on the board, this number goes down by one everytime a ship is hit and if the number reaches zero the player will be decalred the winner.
 
+ ## Planning
+ * I Built a Flow chart to help me plan the steps of building my Battleships program.
+ ![Planning](assets/images/battleships_Flow_Chart.png)
+
  ## Testing
  
  * The code has passed through PEP8 validator with no errors.
  * I've tested to see if all inputs into coordinates would either work on the board or produce a message to prompt a new input with clarified instruction. this includes inputs that are left blank. 
+
+ ![same_input](assets/images/same_input_error.png)
+ ![repeat_shot](assets/images/repeat_shot%20error.png)
+
  * I have tested that my Restart/ new_game function would succesfully produce a new game without errors, I have fixed issue of My previous board being printed in the game as listed in bugs and fixes below.
+
+![gameover](assets/images/losing_screen.png)
 
  ## Bugs and Fixes
 
@@ -82,6 +92,8 @@ Solved adding int() to input method
  *  I took inspiration from [Python Battleship with Object Oriented Programming](https://www.youtube.com/watch?v=tF1WRCrd_HQ&t=1406s) to help create my create ship function.
 
  * Wikipedia for clarifying the history and rules of battleships. 
+
+ * Lucid charts for my flow chart build.
 
 
 
