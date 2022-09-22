@@ -1,31 +1,26 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# BATTLESHIPS
 
-Welcome Jdacky95,
+## Overview
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+This Game is Based on the classic game of Battleships but with a slight twist, where you have a limited  number of shots to take at the opposing fleet before you are overrun.
 
-## Reminders
+[You can read more about the original game here:](https://en.wikipedia.org/wiki/Battleship_(game))
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+[Click here to be taken to the final deployment of the project](https://battleships-jd.herokuapp.com/)
 
-## Creating the Heroku app
+## How to play:
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+You are Given the opportunity to captain a ship in a ferocious battle where you input coordinates on the map to blindly target the opposing ships.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+You have 15 shots to sink the 5 Ships of the opposition before they overrun you.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+You must select A row coordinate between 0 and 7 and the same again for the Column coordinate, your crew will then fire on your instruction and mark on your map whether you have hit or missed their ships.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+If you sink the opposing ships before you have run out of ammunition you are decalred the winner.
 
-Connect your GitHub repository and deploy as normal.
+If you run out of ammunition you will undoubtedly be overrun and you will be declared the loser.
 
-## Constraints
+## Features
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
------
-Happy coding!
+

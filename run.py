@@ -4,8 +4,8 @@ random function to produce random coordinates when generating ships
 from random import randint
 
 
-SHOWN_BOARD = [["_"] * 8 for x in range(8)]
-SECRET_BOARD = [["W"] * 8 for x in range(8)]
+# SHOWN_BOARD = [["_"] * 8 for x in range(8)]
+# SECRET_BOARD = [["W"] * 8 for x in range(8)]
 
 
 def make_game_board(board):
@@ -71,10 +71,14 @@ def run_game():
     Run game function that calls other in-game functions
     """
 
-    TURNS_LEFT = 15
+    TURNS_LEFT = 3
     SHIPS_LEFT = 5
 
+    SHOWN_BOARD = [["_"] * 8 for x in range(8)]
+    SECRET_BOARD = [["W"] * 8 for x in range(8)]
+
     create_ships(SECRET_BOARD)
+    make_game_board(SHOWN_BOARD)
 
     for x in range(300):
 
