@@ -23,6 +23,7 @@ If you run out of ammunition you will undoubtedly be overrun and you will be dec
 ## Site Aims
 
 1. Make it clear what the game involves without the need for explanation from external sources
+
 2. To Run without error's and allow the player to play as many times as they like.
 3. To be an enjoyable game that encompasses an opportunity to recieve and use inputs to recieve a users chosen Username and to increase playability.
 
@@ -32,7 +33,8 @@ If you run out of ammunition you will undoubtedly be overrun and you will be dec
 * Inputs and validations
  * Accepts command to start the game from inital screen and will exit game upon command
  * Accepts player input for Captain name they would like to be reffered to as and is used in F strings through out to help personalise the game.
- * Accepts Coordinate inputs used to Mark Hit and misses on the board. Validation checks have been put in place to ensure that the same coordinate is not targeted more than once and that each input the player uses translates to a position on the board, if it does not the user will be asked to input a new entry.
+ ![opening_screen](assets/images/initial_screen%20battleships.png)
+ * Accepts Coordinate inputs used to Mark Hit and misses on the board with "H" and "M" respectfully. Validation checks have been put in place to ensure that the same coordinate is not targeted more than once and that each input the player uses translates to a position on the board, if it does not the user will be asked to input a new entry.
 
 * Random Number Generation
  * Random number generator from rand int used to automatically place opposing ships
@@ -40,6 +42,8 @@ If you run out of ammunition you will undoubtedly be overrun and you will be dec
 * Turns and Ships left
  * I have declared a variable for the number of turns the user has left, this number goes down by one with every turn taken, if it hits zero, the    player loses the game. 
  * I have declared a variable for the number of ships that there are left on the board, this number goes down by one everytime a ship is hit and if the number reaches zero the player will be decalred the winner.
+ These Variables are both printed to the console through every turn so the user can clearly know if they are close to winning or losing.
+ ![Ships_and_turns_remaining](assets/images/ships_shots_remaining.png)
 
  ## Planning
  * I Built a Flow chart to help me plan the steps of building my Battleships program.
@@ -48,6 +52,7 @@ If you run out of ammunition you will undoubtedly be overrun and you will be dec
  ## Testing
  
  * The code has passed through PEP8 validator with no errors.
+ ![Pep8](assets/images/pep8_authentication_Project%203.png)
  * I've tested to see if all inputs into coordinates would either work on the board or produce a message to prompt a new input with clarified instruction. this includes inputs that are left blank. 
 
  ![same_input](assets/images/same_input_error.png)
