@@ -71,7 +71,7 @@ def run_game():
     Run game function that calls other in-game functions
     """
 
-    TURNS_LEFT = 3
+    TURNS_LEFT = 15
     SHIPS_LEFT = 5
 
     SHOWN_BOARD = [["_"] * 8 for x in range(8)]
@@ -111,8 +111,8 @@ def run_game():
             print("Those pesky Sea dwellers won't be")
             print("bothering us again any time soon!")
 
-            play_again = input("\n If you'd like to play again press R,\
- if you want to exit press any other key:   \n ")
+            play_again = input("\n If you'd like to play again Enter R,\
+ if you want to exit Enter any other key:   \n ")
 
             if play_again == "R":
 
@@ -128,8 +128,8 @@ def run_game():
             print(" The crew are leaving on the boats.")
             print("\n But you must go down with your ship!")
 
-            play_again = input("\n If you'd like to play again press R,\
- if you want to exit press any other key:   \n").upper()
+            play_again = input("\n If you'd like to play again Enter R,\
+ if you want to exit Enter any other key:   \n").upper()
 
             if play_again == "R":
 
@@ -164,7 +164,7 @@ def new_game():
     print(f"\n Welcome Captain {name}, to the war room")
     print(" we hope you will guide us well in this battle!")
 
-    start = input("\n Press S to start\
+    start = input("\n Enter S to start\
  or any other key to exit the game:\n\n   ").upper()
 
     if start == "S":
